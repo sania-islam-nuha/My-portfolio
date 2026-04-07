@@ -1,0 +1,417 @@
+:root {
+    --bg-color: #fdfaf5;       /* Soft Cream/Off-white */
+    --card-bg: #ffffff;
+    --text-main: #3d3d3d;      /* Deep Charcoal */
+    --accent-warm: #e6a48e;    /* Muted Terracotta */
+    --accent-soft: #a8b5a2;    /* Sage Green */
+    --glass: rgba(255, 255, 255, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Navbar - Floating Glass Look */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1000px;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.logo { font-weight: 700; font-size: 1.5rem; color: var(--accent-warm); }
+
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { 
+    text-decoration: none; 
+    color:var(--text-main); 
+    font-weight: 500;
+    transition: 0.3s;
+}
+.nav-links a:hover { color: var(--accent-warm); }
+
+/* Hero Section - Cozy & Airy */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10%;
+    background: radial-gradient(circle at top right, #fff5f0, transparent);
+}
+
+.hero-content h1 { font-size: 4rem; margin-bottom: 10px; }
+.hero-content h3 { color: var(--accent-soft); font-weight: 400; font-size: 1.5rem; }
+
+.hero-img .img-box {
+    width: 380px;
+    height: 380px;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Organic shape */
+    background: var(--accent-warm);
+    overflow: hidden;
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+    transition: 0.5s;
+}
+
+.hero-img .img-box:hover {
+    border-radius: 50%;
+}
+
+.hero-img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Buttons */
+/* Updated Cozy Button */
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 40px;
+    background: rgba(230, 164, 142, 0.15); /* Light Terracotta Tint */
+    color: #bc7a65; /* Elegant Deep Rose/Terracotta Font Color */
+    text-decoration: none;
+    border-radius: 50px; /* Fully Rounded Capsule Shape */
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border: 2px solid var(--accent-warm); /* Thin Border */
+    backdrop-filter: blur(5px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Hover Effect */
+.btn:hover {
+    color: #ffffff; /* Font turns white on hover */
+    background: var(--accent-warm); /* Background fills up */
+    transform: translateY(-5px); /* Slight lift */
+    box-shadow: 0 15px 30px rgba(230, 164, 142, 0.4); /* Soft warm glow */
+}
+
+/* Optional: Button inner shine animation */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: 0.6s;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* Cards Styling */
+section { padding: 100px 10%; }
+
+.heading { text-align: center; margin-bottom: 60px; font-size: 2.5rem; }
+.heading span { color: var(--accent-warm); }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Vertical Timeline for Education & Achievements */
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* The Vertical Line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent-warm), var(--accent-soft));
+    opacity: 0.3;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px;
+    transition: 0.4s;
+}
+
+/* The Dot on the line */
+.timeline-dot {
+    position: absolute;
+    left: 11px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--bg-color);
+    border: 3px solid var(--accent-warm);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(230, 164, 142, 0.5);
+}
+
+.timeline-content {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 20px;
+    border-left: 5px solid var(--accent-warm);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    transition: 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateX(10px);
+    background: #fff;
+    box-shadow: 15px 15px 40px rgba(0,0,0,0.05);
+}
+
+.timeline-content h4 {
+    color: var(--accent-warm);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.timeline-content span {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 500;
+}
+
+/* --- Modern Floating Tech Stack --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+    perspective: 1000px;
+}
+
+.tech-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(230, 164, 142, 0.2);
+    padding: 30px 20px;
+    border-radius: 30px;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+}
+
+.tech-card i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, var(--accent-warm), var(--accent-soft));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.3s;
+}
+
+.tech-card:hover {
+    transform: translateY(-15px) rotateX(10deg);
+    background: #fff;
+    border-color: var(--accent-warm);
+    box-shadow: 0 20px 40px rgba(230, 164, 142, 0.15);
+}
+
+.tech-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* --- Dreamy Let's Connect Section --- */
+.contact-container {
+    background: radial-gradient(circle at top left, rgba(230, 164, 142, 0.1), transparent),
+                radial-gradient(circle at bottom right, rgba(168, 181, 162, 0.1), transparent);
+    padding: 60px 40px;
+    border-radius: 40px;
+    border: 1px white solid;
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.dreamy-link {
+    text-decoration: none;
+    padding: 15px 30px;
+    background: white;
+    color: var(--text-main);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+    transition: 0.4s;
+    border: 1px solid rgba(230, 164, 142, 0.1);
+}
+
+.dreamy-link i {
+    font-size: 1.2rem;
+    color: var(--accent-warm);
+}
+
+.dreamy-link:hover {
+    background: var(--accent-warm);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(230, 164, 142, 0.3);
+}
+
+.dreamy-link:hover i {
+    color: white;
+}
+/* Footer & Socials */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #79a38a; /* Soft green */
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+/* Specific Tech Colors */
+.fa-html5 { color: #e34f26; } /* HTML Orange */
+.fa-css3-alt { color: #1572b6; } /* CSS Blue */
+.fa-cpp { color: #00599c; } /* C++ Blue */
+.fa-java { color: #f89820; } /* Java Orange */
+
+.tech-card:hover i {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(230, 164, 142, 0.4));
+}
+
+footer { text-align: center; padding: 50px; background: #f7f2eb; color: #888; }
+/* --- 1. Ultra Premium Background Movement --- */
+body {
+    background: linear-gradient(-45deg, #fdfaf5, #fff5f0, #f0f7f4, #fdfaf5);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- 2. Scroll Progress Bar --- */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(to right, var(--accent-warm), var(--accent-soft));
+    z-index: 2000;
+}
+
+/* --- 3. Enhanced Glassmorphism for Cards --- */
+.timeline-content, .tech-card, .contact-container {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(230, 164, 142, 0.1);
+}
+
+/* --- 4. Custom Selection Color --- */
+::selection {
+    background: var(--accent-warm);
+    color: white;
+}
+/* --- WhatsApp & Social Icon Effects --- */
+
+/* 1. WhatsApp Pulse Animation */
+.whatsapp-float {
+    z-index: 1001;
+    transition: all 0.3s ease;
+    animation: pulse-green 2s infinite; /* Continuous pulse effect */
+}
+
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(121, 163, 138, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(121, 163, 138, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(121, 163, 138, 0); }
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
+    background: #25D366; /* Brightens on hover */
+}
+
+/* 2. Contact Links (FB, Email, Call) Dreamy Hover */
+.dreamy-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.dreamy-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
+}
+
+.dreamy-link:hover::after {
+    left: 100%; /* Shimmer effect on hover */
+}
+
+.dreamy-link:hover {
+    letter-spacing: 1px;
+    box-shadow: 0 15px 30px rgba(230, 164, 142, 0.3);
+}
+
+/* 3. Facebook Specific Icon Hover */
+.dreamy-link:hover .fa-facebook-f {
+    animation: icon-bounce 0.5s ease infinite alternate;
+}
+
+@keyframes icon-bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-5px); }
+}
